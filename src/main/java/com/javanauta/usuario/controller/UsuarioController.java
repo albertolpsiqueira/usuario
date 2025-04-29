@@ -43,4 +43,9 @@ public class UsuarioController {
         usuarioService.deteaUsuarioPorEmail(email);
         return ResponseEntity.ok().build();
     }
+
+    @PutMapping
+    public ResponseEntity<UsuarioDTO> atualizaDadosUsuario(@RequestBody UsuarioDTO dto, @RequestHeader("Autohorization") String token) {
+        return ResponseEntity.ok(usuarioService.atualizadDadosUsuario(token, dto));
+    }
 }
